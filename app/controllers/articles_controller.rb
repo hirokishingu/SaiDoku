@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
+    @article.user = User.first
     if @article.save
       flash[:success] = "記事を作成しました。"
     redirect_to article_path(@article)

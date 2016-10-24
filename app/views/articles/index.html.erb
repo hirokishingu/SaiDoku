@@ -2,8 +2,10 @@
   <div align="center">
     <%= will_paginate %>
   </div>
-<%= render "article", obj: @articles %>
-<%= link_to "新規投稿", new_article_path %>
+    <%= render "article", obj: @articles %>
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= link_to "新規投稿", new_article_path %>
+  </div>
   <div align="center">
     <%= will_paginate %>
   </div>

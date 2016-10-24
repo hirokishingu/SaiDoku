@@ -1,11 +1,22 @@
 $navbar-default-bg: lemonchiffon;
 
+.btn-yellow {
+  color: #fff;
+  background-color: gold;
+  border-color: white;
+}
+.btn-yellow:hover {
+  color: #fff;
+  background-color: yellow;
+  border-color: white;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 #logo {
   float: left;
-  font-size: 32px;
+  font-size: 20px;
   color: black;
   text-transform: uppercase;
   letter-spacing: -1px;

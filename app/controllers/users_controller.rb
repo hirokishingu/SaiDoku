@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   before_action :require_user, only: [:index, :show]
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "ようこそ! BRAND へ #{@user.username}"
+      flash[:success] = "ようこそ! 書評サイト(仮) へ #{@user.username}"
       redirect_to user_path(@user)
     else
       render 'new'

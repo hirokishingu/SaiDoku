@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except:[:index, :show]
 
 
-  before_action :require_user, execept: [:index, :show]
+  before_action :require_user, only: [:index, :show]
 
 
   def index

@@ -47,6 +47,26 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def my_friends
+    @friendships = current_user.friends
+  end
+
+  def add_friend
+    @friend = User.find(params[:friend])
+    current_user.friendships.build(friend_id: @friend.id)
+
+    if current_user.save
+      flash[:success] = "友達追加に成功しました。"
+      redirect_to my_friends_path
+
+
+    else
+      flash[:danger] = "エラーあり"
+      redirect_to my_friends_path
+    end
+  end
+
+
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)

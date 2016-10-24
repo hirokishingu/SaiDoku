@@ -1,4 +1,14 @@
 <h1 align="center">ようこそ！ <%= @user.username %> のページへ</h1>
+
+
+  <% if current_user.not_friends_with?(@user) %>
+  <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user), class: "btn btn-xs btn-success", method: :post %>
+    <% else %>
+      <h1>
+        You are friends
+      </h1>
+    <% end %>
+
   <h4 align="center"><%= @user.username %>'s articles</h4>
   <div class="center">
     <%= will_paginate @user_articles %>

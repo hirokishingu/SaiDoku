@@ -1,13 +1,14 @@
 <h1 align="center">ようこそ！ <%= @user.username %> のページへ</h1>
 
-
+<div class="center">
   <% if current_user.not_friends_with?(@user) %>
-  <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user), class: "btn btn-xs btn-success", method: :post %>
+  <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: @user), class: "btn btn-lg btn-success", method: :post %>
     <% else %>
-      <h1>
+      <h4>
         You are friends
-      </h1>
+      </h4>
     <% end %>
+</div>
 
   <h4 align="center"><%= @user.username %>'s articles</h4>
   <div class="center">
